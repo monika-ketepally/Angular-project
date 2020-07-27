@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { SalonComponent } from './salon/salon.component';
 import { CovidComponent } from './covid/covid.component';
 import { ServiceHPComponent } from './service-hp/service-hp.component';
 import { ShowempComponent } from './showemp/showemp.component';
+import { TrialComponent } from './trial/trial.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoot:Routes=[{path:'', component: HomeComponent},
 {path:'login', component: LoginComponent},
@@ -41,15 +43,17 @@ const appRoot:Routes=[{path:'', component: HomeComponent},
     SalonComponent,
     CovidComponent,
     ServiceHPComponent,
-    ShowempComponent
+    ShowempComponent,
+    TrialComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     HttpClientModule,
     RouterModule.forRoot(appRoot) , 
-    ReactiveFormsModule
+    ReactiveFormsModule, NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
