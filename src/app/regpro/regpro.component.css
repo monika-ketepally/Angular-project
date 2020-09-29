@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ html{
+     height: 100%;
+ }
+ body{
+   height: 650px;
+     background: #fafafa;
+font-family: 'Segoe UI', sans-serif;;
+     font-size: 1rem;
+     line-height: 1.6;
+ }
+ .wrap {
+     width: 350px;
+     margin: 50px auto;
+     background: #fafafa;
+}
+.login-form{
+   margin-top: -18px;
+   padding-top: 10px;
+   width: 350px;
+   margin: 0 auto;
+   border: 1px solid #ddd;
+   padding: 2rem;
+   background: #ffffff;
+}
+.form-input{
+ margin-top: -27px;
+   background: #fafafa;
+   border: 1px solid #eeeeee;
+   padding: 12px;
+   width: 100%;
+}
+.form-group{
+   margin-bottom: 1rem;
+}
+.form-button{
+  background: #2c91a8;
+  border: 1px solid #ddd;
+  color: #ffffff;
+  padding: 10px;
+  width: 100%;
+  text-transform: uppercase;
+}
+.form-button:hover{
+  background: #69c8e7;
+}
+.form-header{
+text-align: center;
+margin-bottom : 1rem;
+}
+.form-footer{
+text-align: center;
+}
+.flipcard{
+background-color: transparent;
+width : 350px;
+perspective: 1000px;
+}
+.flipcard-inner{
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+.flipcard-front, .flipcard-back{
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+}
+.flipcard-front{
+color: black;
+}
+.flipcard-back{
+background-color:#2c91a8 ;				
+transform: rotateY(180deg);
+}		
+input[type="checkbox"]:checked + .flipcard .flipcard-inner{
+transform: rotateY(180deg);
+}
+.form-button-register{
+background: #2c91a8;
+}
+.form-button-register:hover{
+background: #69c8e7;
+}
+.switch_form:before{
+content: " ";
+display: block;
+background:red;
+}
+.label-highlight{
+color: blue;
+}

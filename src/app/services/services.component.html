@@ -1,0 +1,65 @@
+<body style="background-color: #f7f7f7;">
+  <img src = "assets/images/back.jpg" onclick="history.back()" style = " width: 51px;">
+
+    <div class="row">
+  <div class="col-md-2" style="padding-left: 53px; padding-top: 91px;  background-color: white; border-right: 1px solid lightblue;">
+    <h2>Filter</h2>
+<form>
+  <input type="radio" id="newly" name="newly" >
+  <label for="newly" style="padding-left: 10px;margin-bottom: 14px;" (click) = "click('serviceId','desc') ">  Newly added</label><br>
+  <input type="radio" id="namea" name="newly">
+  <label for="namea" style="padding-left: 10px;margin-bottom: 14px;" (click) = "click('serviceName','asc')">  Name: A to Z</label><br>
+  <input type="radio" id="namez" name="newly" >
+  <label for="namez" style="padding-left: 10px;margin-bottom: 14px;" (click) = "click('serviceName','desc')">Name: Z to A </label><br>
+  <input type="radio" id="rating" name="newly">
+  <label for="rating" style="padding-left: 10px;margin-bottom: 14px;" (click) = "click('rating','desc')">Rating </label><br>
+ 
+</form>
+  </div>
+<div class="col-md-10">
+  <div class = "container" style="margin-top: 40px;margin-bottom: 30px;margin-right: 30px; ">
+    <div class="row text-center">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 "  *ngFor = "let service of servicess | sortBy: order: filter">
+        <div class="card" style="padding: 18px;">
+          <div *ngIf ="!ck(service); then imageBlock else defaultBlock"></div>
+          <ng-template #imageBlock>
+            <div class="col">
+              <img class="card1-img" routerLink = "one-service" (click) = "choose(service)" src="assets/images/{{service.imageName}}" height="250px"
+                style="height:250px;width:300px;margin-left: -9px;">
+            </div>
+          </ng-template>
+
+          <ng-template #defaultBlock>
+            <div class="col">
+              <img class="card1-img" routerLink = "one-service" (click) = "choose(service)" src="assets/images/def.jfif"
+                style="height:250px;width:300px;margin-left: -9px">
+            </div>
+          </ng-template>
+          <div class="card-body align=center">
+                <h3 class="card-title" routerLink = "one-service" >{{service.serviceName}}</h3>
+                <p class="card-text" style="color: #999;">{{service.address}} </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+<!--
+<body style="background-color: #f7f7f7;">
+    <div class = "container" style="margin-top: 40px;margin-bottom: 30px;margin-right: 30px;">
+    <div class="row text-center">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 "  *ngFor = "let service of servicess | orderBy : 'serviceName'">
+        <div class="card" style="padding: 18px;margin-bottom: 20px;">
+           <img class="card-img" routerLink = "one-service" (click) = "choose(service)" src= "http://localhost:8006/viewss/images/{{service.imageName}}" height="250px">
+            <div class="card-body align=center">
+                <h3 class="card-title" routerLink = "one-service" >{{service.serviceName}}</h3>
+                <p class="card-text" style="color: #999;">{{service.address}} </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+*ngFor = "let service of servicess | sortBy : 'desc' : 'rating'">-->

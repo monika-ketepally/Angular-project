@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">>
+<script>$('#rating-form').on('change','[name="rating"]',function(){
+  $('#selected-rating').text($('[name="rating"]:checked').val());
+});</script-->
+
+</head>
+
+<body>
+  <img src = "assets/images/back.jpg" onclick="history.back()" style = " width: 51px;">
+
+
+  <div class="card1" style="margin-top: 60px;height: 380px;">
+    <div class="container1" style="margin-left: 135px;">
+      <h4 style="margin-top: -90px;"></h4>
+
+      <div class="container1">
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <h1><b>{{ser.serviceName}}</b></h1>
+            <p>&nbsp;&nbsp;&nbsp;{{ser.address}}</p>
+          </div>
+          <div class="col">
+              <div *ngIf ="!ck(); then imageBlock else defaultBlock"></div>
+          <ng-template #imageBlock>
+            <div class="col">
+              <img class="card1-img" src="assets/images/{{ser.imageName}}"
+              style="margin-top: -80px;height:250px;width:300px">
+            </div>
+          </ng-template>
+
+          <ng-template #defaultBlock>
+            <div class="col">
+              <img class="card1-img"  src="assets/images/def.jfif"
+              style="margin-top: -80px;height:250px;width:300px">
+            </div>
+          </ng-template>
+          </div>
+          <div class="col-sm-5">
+            <br>
+            &nbsp;&nbsp;&nbsp;<span class="fa fa-star checked">{{ser.rating| number : '1.1-1'}}</span>
+            <br><br>
+            <button class="button button3" (click)="book()">BOOK NOW</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="flip-card1">
+      <div class="flip-card1-inner">
+        <div class="flip-card1-front">
+          <div class="column">
+            <img src="assets/images/1card.png" alt="Avatar" style="width:500px;height:200px; margin-left: 165px;">
+          </div>
+          <div class="column">
+            <img src="assets/images/coupon.jfif" alt="Avatar" style="width:500px;height:200px; margin-left: 430px;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card1" style="margin-top: 70px; margin-top: 210px;overflow: hidden;">
+    <div class="container1" style="margin-top: -70px; margin-left:290px">
+      <mat-tab-group>
+        <mat-tab label="Reviews">
+          <div class="abc">
+            <label for="lname">Write your Experience</label><br>
+            <input type="text" id="lname" name="lname" value="..." [(ngModel)]="rev.review"
+              style=" width:300px; height:20px; ">
+            <h1 class="text-primary">
+              <ngb-rating [max]="5" [(rate)]="currentRat" [readonly]="false"></ngb-rating>
+            </h1>
+            <input type="submit" value="Submit" (click)="submit()">
+
+            <!--p>Rate: {{currentRate}}</p-->
+          </div>
+          <div class="chip" *ngFor='let r of reviews' style="margin-left: 22px;">
+            <div style="width :100%">
+                <div *ngIf = "r.customer.gender === 'female'">
+                  <img src="assets/images/image1.png" alt="Person" width="86" height="96">
+                </div>
+                <div *ngIf = "r.customer.gender === 'male'">
+                  <img src="assets/images/image11.png" alt="Person" width="86" height="96">
+                </div>
+              {{r.customer.custName}}
+              {{ratin(r)}}
+              <h1 class="text-primary">
+                <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+              </h1>
+              <p>{{r.review}}</p>
+
+              <hr style="border:3px solid #f1f1f1"><br><br>
+            </div>
+          </div>
+          <!--div class="chip">
+     <img src="assets/images/image1.png" alt="Person" width="96" height="96">
+     Emma Chamberlin
+  
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <p>Precautions were taken accordingly. The service was og high quality. Would definetly recommend this.</p>
+     <hr style="border:3px solid #f1f1f1">
+
+    
+    </div-->
+        </mat-tab>
+
+        <mat-tab label="Worker Details">
+          <div class="container2">
+            <div class="chip" *ngFor='let w of workers' style="margin-left: 22px;margin-right: 34px;">
+              <div *ngIf = "w.gender === 'female'">
+                <img src="assets/images/image1.png" alt="Person" width="86" height="96">
+              </div>
+              <div *ngIf = "w.gender === 'male'">
+                <img src="assets/images/image11.png" alt="Person" width="86" height="96">
+              </div>              {{w.workerName}}
+              <p style="margin-bottom: -474px;height: 519px;margin-left: 36px">
+                Designation: <b>{{w.designation}}</b></p>
+              <p style="margin-bottom: -474px; height: 519px;margin-left: 32px;">
+                Body Temperature:<b> {{w.temperature}}F</b></p>
+              <hr style="border:3px solid #f1f1f1">
+            </div>
+          </div>
+          <br>
+          <br>
+          <!--div class="chip">
+            <img src="assets/images/person.jfif" alt="Person" width="100" height="96">
+             Caroline Channing
+             <p style="margin-bottom: -21px;"><b>Age</b>: 29</p>
+             <p style="margin-bottom: -21px;"><b>Position</b>: Head Waitress</p>
+             <p style="margin-bottom: -21px;"><b>Worker ID</b>: 313910</p>
+             <p style="margin-bottom: -21px;"><b>Arogyasethu Status</b>: Negative</p>
+             <p style="margin-bottom: -21px;"><b>Body Temprature</b>: 98.6F</p>
+             <hr style="border:3px solid #f1f1f1">
+       
+       
+        </div-->
+
+
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</body>
+
+</html>

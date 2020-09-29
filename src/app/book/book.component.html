@@ -1,0 +1,136 @@
+<html>
+<style>
+    .body {
+        background-image: url('assets/images/bg1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<!--body class="body">
+    <form class="modal-content animate" style="width: 400px;" action="/action_page.php" method="post" name = "bookform">
+        <div class="container">
+            <h2 style="font-weight: 200;">BOOK YOUR SERVICE</h2>
+
+            <br /><br />
+            <img src="assets/images/OIPBook.jfif" alt="Person"
+                style="margin-top: -17px;margin-bottom: 24px; margin-left: -16px;width: 399px;">
+            <label for="date"><b>Date</b></label><br />
+
+            <--button (click)="chooseDate(new Date())">11/8</button-->
+            <!--button class="btn default" (click)="chooseDate(today)"
+                style=" border: 1px solid lightblue;">{{today}}</button>
+            <button class="btn default" (click)="chooseDate(nextDate)"
+                style=" border: 1px solid lightblue;margin-left: 39px;">{{nextDate}}</button>
+            <br /><br />
+            <label for="time"><b>Time</b></label><br />
+            <div class="row ">
+                <div class="col-sm-4 vertical-center " *ngIf=!nine>
+                    <button class="btn default" (click)="choose('09-12')"
+                        style=" border: 1px solid lightblue;">09-12</button>
+
+                </div>
+                <div class="col-sm-4 vertical-center" *ngIf=!twelve>
+                    <button class="btn default" (click)="choose('12-15')"
+                        style=" border: 1px solid lightblue;">12-15</button></div>
+                <div class="col-sm-4 vertical-center" *ngIf=!three>
+                    <button class="btn default" (click)="choose('15-18')"
+                        style=" border: 1px solid lightblue;">15-18</button></div>
+                <br>
+            </div>
+            <br /><br />
+            <label for="psw"><b>Service</b></label><br />
+            <div class = "row">
+            <div *ngFor="let s of serList" class="col-sm-4 vertical-center" >
+                <button class="btn default" (click) = "setSer(s)"
+                    style=" border: 1px solid lightblue;margin-bottom: 10px;">{{s.serviceeName}}</button>
+                </div>
+            
+        </div>
+        <div *ngIf = "!discount(); then thenblock else elseblock"></div>
+        <ng-template #thenblock>
+            <label for="psw"><b>Price : </b> &nbsp;&nbsp;&#x20B9; {{bookS.services.price}}.00</label><br>
+        </ng-template>
+        <ng-template #elseblock>
+            <div class = "row">
+            <label for="psw" ><b style = "margin-left: 15px;">Price : </b> &nbsp;&nbsp;<p style = "text-decoration: line-through;color :darkgray;margin-left: 81px;
+                margin-top: -24px;margin-bottom: -28px;"> &#x20B9;{{bookS.services.price}}.00</p><sup style = "color:#0099ff;margin-left: 140px;">10% off </sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                = &nbsp;&nbsp;&#x20B9;{{off}}&nbsp;&nbsp;</label><br>
+            </div>
+        </ng-template>
+            <div *ngIf = "check()">
+            <button class="button2" style="width: 117px; margin-left: 123px; margin-top: 22px;" type="submit"
+                (click)="regSubmit()">Book</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</body>
+
+</html>-->
+<body class = "body">
+    <img src = "assets/images/back.jpg" onclick="history.back()" style = " width: 51px;">
+ <div class="container" style = "margin-top: 5px; background: white;">
+
+    <div class="container-time">
+    <img src="assets/images/happy.png" style=" margin-top: -86px;
+        width: 402px;
+        margin-left: -50px;">
+    </div>
+    
+    <div class="container-form">
+    <form action="#">
+    
+    
+    <h2 class="heading heading-yellow">BOOK YOUR SERVICE </h2>
+      
+    <div class="form-field">
+    <p>Date</p>
+    <button class="button button4"  (click)="chooseDate(today)">{{today}}</button>
+    <button class="button button4"  (click)="chooseDate(nextDate)"style="margin-left: 39px;">{{nextDate}}</button>
+            <br /><br />
+    </div>
+    <div class="form-field">
+    <p>Time</p>
+        <div class="button button4" *ngIf=!nine>
+            <button class="button button4" (click)="choose('09-12')">09-12</button>
+
+        </div>
+        <div class="button button4" *ngIf=!twelve>
+            <button class="button button4" (click)="choose('12-15')">12-15</button></div>
+        <div class="button button4" *ngIf=!three>
+            <button class="button button4" (click)="choose('15-18')" >15-18</button></div>
+        <br>
+    </div>
+    <div class="form-field">
+    <p>Services</p>
+      <select name = "service" ngModel style="width: 236px;border-radius: 39px;border-width: 3px;padding: 0px 0px;
+    height: 34px;" [(ngModel)] = "bookS.services" placeholder="select service" name="serList" required ><br/><br/>
+        <option value = ""></option>
+        <option *ngFor="let s of serList" [ngValue] = "s" >{{s.serviceeName}} - {{s.price | currency : 'INR'}} </option> </select>
+        <br>
+    <br>
+    </div>
+    <div *ngIf = "!discount(); then thenblock else elseblock"></div>
+        <ng-template #thenblock>
+            <label for="psw"><b>Price : </b> &nbsp;&nbsp;&#x20B9; {{bookS.services.price}}.00</label><br>
+        </ng-template>
+        <ng-template #elseblock>
+            <div class = "row">
+            <label for="psw" ><b style = "margin-left: 15px;">Price : </b> &nbsp;&nbsp;<p style = "text-decoration: line-through;color :darkgray;margin-left: 81px;
+                margin-top: -24px;margin-bottom: -28px;"> &#x20B9;{{bookS.services.price}}.00</p><sup style = "color:#0099ff;margin-left: 140px;">10% off </sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                = &nbsp;&nbsp;&#x20B9;{{off}}&nbsp;&nbsp;</label><br>
+            </div>
+        </ng-template>
+        <div *ngIf = "check()">
+            <button class="btn" style="width: 157px; margin-left: 123px; margin-top: 22px;" type="submit"
+                (click)="regSubmit()">Book</button>
+            </div>
+    </form>
+    </div>
+    </div>
+    
+    
+    </body>
+    </html>

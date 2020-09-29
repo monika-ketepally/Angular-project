@@ -1,0 +1,112 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  
+</head>    
+
+  <button class="rigt" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a Worker</button>
+
+  <div id="id01" class="modal">
+    
+    <form class="modal-content animate" #registrationForm="ngForm" (ngSubmit)="regSubmit(registrationForm)" action="/action_page.php" method="post">
+     
+  
+      <div class="container">
+       <label for="workerid"><b>Workerid</b></label><br>    
+        <input type="number" placeholder="Enter WorkerId" name="workerId" ngModel [(ngModel)] = "editObj.workerId" required>  <br>
+      
+        <label for="workername"><b>Workername</b></label><br>    
+        <input type="text" placeholder="Enter workername" name="workerName" ngModel [(ngModel)] = "editObj.workerName" required>  <br>
+        
+        <label for="dsg"><b>Designation</b></label><br>
+        <input type="text" placeholder="Enter Designation" name="designation" ngModel [(ngModel)] = "editObj.designation" required>  <br>
+        
+       
+          <label for="temp"><b>Temperature</b></label>  <br>
+        <input type="number" placeholder="Enter Temperature" name="temperature" ngModel [(ngModel)] = "editObj.temperature" required>  <br>
+        
+         <label for="phoneno"><b>Phone number</b></label>  <br>
+        <input type="text" placeholder="Enter Phone number" name="mobile" ngModel [(ngModel)] = "editObj.mobile" required>  <br>
+        <button type="submit" >Register</button>
+      
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1; width:87%">
+        <button type="button"  onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+      </div>
+    </form>
+  </div>
+  
+  <script>
+  
+  var modal = document.getElementById('id01');
+  
+  
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+<div class="container">
+<table class="table table-bordered table-striped table-hover table-sm text-center">
+<thead>
+  <tr class="bg-info text-white">
+  <th>ID</th>
+  <th>NAME</th>
+  <th>DESIGNATION</th>
+  <th>TEMPERATURE</th>
+<th>MOBILE</th>
+  
+  <th>DELETE</th>
+  <th>EDIT</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor='let employee of employees'>
+  <td>{{employee.workerId}}</td>
+  <td>{{employee.workerName }}</td>
+  <td>{{employee.designation}}</td>
+  <td>{{employee.temperature }}</td>
+  <td>{{employee.mobile }}</td>
+  <td><label (click) = "deleteEmp(employee)"><div class="glyphicon glyphicon-trash"></div></label></td>
+   <td><label  (click) = "getEmp(employee)" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><div class="glyphicon glyphicon-pencil"></div></label></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+<div id="id02" class="modal rigt">
+
+<form class="modal-content animate" action="/action_page.php" method="post" style = "width: 400px;">
+ 
+
+  <div class="container" style="width: 33%;">
+    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn" style = "float:right;margin-right: -140px;">x</button>
+
+    <h2>Update</h2>
+
+   <label for="workerid"><b>Worker Id</b></label><br>
+    <input  style = "width : 278% ; margin-left: -97px;"type="text"  value = {{editObject.workerId}} [(ngModel)] = "editObject.workerId" name="wid"  readonly><br>
+    <label for="workername"><b>Workername</b></label><br>
+    <input style = "width : 278% ; margin-left: -97px;" type="text" value = {{editObject.workerName}} [(ngModel)] = "editObject.workerName" name="wname" required><br>
+<label for="dsg"><b>Designation</b></label><br>
+    <input style = "width : 278% ; margin-left: -97px;" type="text" value = {{editObject.designation}} [(ngModel)] = "editObject.designation" name="dsg" required><br>
+   
+   
+      <label for="temp"><b>Temperature</b></label><br>
+    <input style = "width : 278% ; margin-left: -97px;" type="text"value = {{editObject.temperature}} [(ngModel)] = "editObject.temperature" name="temp" required><br>
+    
+     <label for="phoneno"><b>Phone number</b></label><br>
+    <input style = "width : 278% ; margin-left: -97px;" type="text"  value = {{editObject.mobile}} name="pno"  [(ngModel)] = "editObject.mobile" required><br>
+    <button style = "width : 278% ; margin-left: -97px;" type="submit" (click) = "updateEmp()">Update</button>
+  
+  </div>
+
+</form>
+</div>

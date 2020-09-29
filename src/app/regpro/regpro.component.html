@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login or Register</title>
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true :
+                        decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        if (getUrlParameter('register') == 'true') {
+            document.getElementById('flipcard-inner').style.transform = 'rotateY(180deg)';
+        }
+
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('ngpatternApp', []);
+        app.controller('ngpatternCtrl', function ($scope) {
+            $scope.sendForm = function () {
+                $scope.msg = "Form Validated";
+            };
+        });
+    </script>
+    <style>
+        .body {
+            background-image: url('assets/images/bg1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            overflow-y: hidden;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <div class="wrap">
+        <input type="checkbox" id="form_switch" style="display: none;">
+        <div class="flipcard">
+            <div class="flipcard-inner">
+                <div class="flipcard-front">
+                    <div ng-app="ngpatternApp" ng-controller="ngpatternCtrl">
+                        <form class="login-form" action="" #registerForm="ngForm" (ngSubmit)="regSubmitcust()" style ="height: 683px;"
+                            novalidate>
+                            <div class="form-header">
+                                <h3 style="margin-top: -16px;">Sign up </h3>
+
+                            </div>
+                            <!--Email Input-->
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="name" placeholder="User name"
+                                    [(ngModel)]="user.custName" required ngModel #name="ngModel">
+                                <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">please
+                                    enter name</div>
+                            </div>
+                            <!--Password Input
+                    <div class="form-group">
+                       <input type="email" class="form-input" name="email" placeholder="email" [(ngModel)] = "userr.email" required  ngModel #email="ngModel">
+                       <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">please enter email</div>
+                    </div>-->
+                            <!--Password Input-->
+                            <div class="form-group">
+                                <div class="validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                                    <input type="email" name="email" class="placeholder form-input" ngModel
+                                        #email="ngModel" required maxlength=50 minlength=6 placeholder="Email" pattern="^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+)+((\.)[a-z]{2,})+$"
+                                        [(ngModel)]="user.email">
+                                    <div *ngIf="email.touched && email.errors?.required"
+                                        class="alert alert-danger">please enter email</div>
+                                        <div *ngIf="email.errors">
+                                            <div [hidden]="!email.errors.pattern" class="alert alert-danger">
+                                                   Enter Valid Email.
+                                            </div>
+                                         </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-input" name="gender" [(ngModel)]="user.gender" style = "margin-top: 2px;margin-bottom: -20px;"
+                                    required  aria-labelledby="Gender" ngModel #gender="ngModel">
+                                        <option value="" disabled selected hidden>
+                                            <p style="color: lightgrey;">Gender</p>
+                                        </option>
+                                        <option value="female" selected>Female</option>
+                                        <option value="male" selected>Male</option>
+                                    </select>
+                                    <div *ngIf="gender.touched && gender.errors?.required" class="alert alert-danger">please
+                                        select Gender</div>
+                                </div>
+                                <input style="margin-top: 3px;" class="form-input" type="number" placeholder="Mobile"
+                                    ngModel #mobile="ngModel" pattern="[6789][0-9]{9}"  name="mobile"
+                                    [(ngModel)]='user.mobile'  required>
+                                <div *ngIf="mobile.touched && mobile.errors?.required" class="alert alert-danger">please
+                                    enter mobile number</div> <label style = "margin-left: 13pc;cursor: pointer;" (click) = "getRandomIntInclusive()"> Send OTP</label> 
+
+                                    <div *ngIf="mobile.errors">
+                                        <div [hidden]="!mobile.errors.pattern" class="alert alert-danger">
+                                               Enter 10 digit Number.
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="otp" placeholder="OTP" 
+                                        [(ngModel)]="verifyOtp" required ngModel #otp="ngModel">
+                                </div>
+                               
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="address" placeholder="Address"
+                                    [(ngModel)]="user.address" required ngModel #address="ngModel">
+                                <div *ngIf="address.touched && address.errors?.required" class="alert alert-danger">
+                                    please enter address</div>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-input" name="city" [(ngModel)]="user.city" required
+                                    aria-labelledby="City" ngModel #city="ngModel">
+                                    <option value="" disabled selected hidden>
+                                        <p style="color: lightgrey;">City</p>
+                                    </option>
+                                    <option value="Hyderabad" selected>Hyderabad</option>
+                                    <option value="Vijayawada" selected>Vijayawada</option>
+                                    <option value="Banglore" selected>Banglore</option>
+                                </select>
+                                <div *ngIf="city.touched && city.errors?.required" class="alert alert-danger">please
+                                    select city</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-input" type="number" placeholder="Pincode" ngModel #pincode="ngModel"
+                                    name="pincode" [(ngModel)]='user.pincode' pattern="[0-9]{6}" required>
+                                <div *ngIf="pincode.touched && pincode.errors?.required" class="alert alert-danger">
+                                    please enter Pincode</div>
+                                    <div *ngIf="pincode.errors">
+                                        <div [hidden]="!pincode.errors.pattern" class="alert alert-danger">
+                                               Enter Valid Pincode.
+                                        </div>
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input" name="password" placeholder="Password"
+                                    [(ngModel)]="user.password" required ngModel #password="ngModel">
+                                <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                                    please enter password</div>
+                            </div>
+                            <!--Login Button-->
+                            <div class="form-group">
+                                <button class="form-button form-button-register"  [disabled]="!registerForm.valid">Sign
+                                    up</button>
+                            </div>
+                            <div class="form-footer"><label class="label-highlight" for="form_switch"> Sign up as
+                                    professional</label>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!--	<div class="flipcard-back">
+        <form class="login-form" action="">
+            <div class="form-header">
+                <h3>Sign up as customer</h3>
+            
+            </div>
+           
+            <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input type="text" class="form-input" name="email" placeholder="Email" [(ngModel)]="user.email">
+            </div>
+      
+            <div class="form-group validate-input" data-validate="Password is required">
+                <input type="password" class="form-input" name="password" placeholder="Password" [(ngModel)]="user.password">
+            </div>
+ 
+            <div class="form-group">
+              <button class="form-button" type="submit" (click) = "loginSubmit()" >
+                Login</button>
+            </div>
+            <div class="form-footer">
+             Don't have an account? <label class="label-highlight" for="form_switch"> Sign Up </label>
+            </div>
+    </form>
+    </div>-->
+                <div class="flipcard-back">
+                    <form class="login-form" action="" name="regForm" style ="height: 683px;">
+                        <div class="form-header">
+                            <h3>Sign up as professional</h3>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" placeholder="Service Name"
+                                [(ngModel)]="userr.serviceName" required ngModel #name="ngModel">
+                            <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">please enter
+                                name</div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-input" name="category" [(ngModel)]="userr.category" required
+                                aria-labelledby="Category" ngModel #category="ngModel">
+                                <option value="" disabled selected hidden>
+                                    <p style="color: lightgrey;">Category</p>
+                                </option>
+                                <option value="salon" selected>Salon & Spa</option>
+                                <option value="carpentry">Carpentry</option>
+                                <option value="car wash">Car wash</option>
+                                <option value="electrical">Electricians</option>
+                                <option value="plumber">Plumbers</option>
+                                <option value="disinfection">DisInfection</option>
+                            </select>
+
+                            <div *ngIf="category.touched && category.errors?.required" class="alert alert-danger">please
+                                choose category</div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="emails" required
+                            pattern="^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+)+((\.)[a-z]{2,})+$" placeholder="Email" [(ngModel)]="userr.email"
+                                required ngModel #emails="ngModel">
+                            <div *ngIf="emails.touched && emails.errors?.required" class="alert alert-danger">please enter
+                                email</div>
+                                <div *ngIf="emails.errors">
+                                    <div [hidden]="!emails.errors.pattern" class="alert alert-danger">
+                                           Enter Valid Email.
+                                    </div>
+                                 </div>
+                            <!--div ng-show="regForm.email.$dirty&&regForm.email.$error.pattern" class="alert alert-danger">please enter proper email</div>
+                -->
+                        </div>
+                        <div class="form-group">
+
+                            <input class="form-input" type="number" placeholder="Mobile" ngModel #mobiles="ngModel"
+                                name="mobiles" [(ngModel)]='userr.mobile' pattern="[6789][0-9]{9}"  required>
+                            <div *ngIf="mobiles.touched && mobiles.errors?.required" class="alert alert-danger">please
+                                enter mobile number
+                            </div>
+                            <div *ngIf="mobiles.errors">
+                                <div [hidden]="!mobiles.errors.pattern" class="alert alert-danger">
+                                       Enter Valid mobile.
+                                </div><label style = "margin-left: 13pc;cursor: pointer;" (click) = "getRandomIntInclusive()"> Send OTP</label>
+                             </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="otp" placeholder="OTP" 
+                                [(ngModel)]="verifyOtp" required ngModel #otp="ngModel">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="address" placeholder="Address"
+                                [(ngModel)]="userr.address" required ngModel #address="ngModel">
+                            <div *ngIf="address.touched && address.errors?.required" class="alert alert-danger">please
+                                enter address</div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-input" name="city" [(ngModel)]="userr.city" required
+                                aria-labelledby="City" ngModel #city="ngModel">
+                                <option value="" disabled selected hidden>
+                                    <p style="color: lightgrey;">City</p>
+                                </option>
+                                <option value="Hyderabad" selected>Hyderabad</option>
+                                <option value="Vijayawada" selected>Vijayawada</option>
+                                <option value="Banglore" selected>Banglore</option>
+                            </select>
+                            <div *ngIf="city.touched && city.errors?.required" class="alert alert-danger">please select
+                                city</div>
+                        </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input" name="password" placeholder="Password"
+                                    [(ngModel)]="userr.password" required ngModel #password="ngModel">
+                                <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                                    please enter password</div>
+                            </div>
+                            <!--Login Button-->
+                            <div class="form-group form-footer">
+                                <button class="form-button form-button-register " type="submit"
+                                    (click)="regSubmit()">Sign up</button>
+                            </div>
+                            <div class="form-footer"><label class="label-highlight" for="form_switch"> Sign up as customer</label>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

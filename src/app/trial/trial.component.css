@@ -1,46 +1,176 @@
 ngb-carousel {
     
-    max-width: 700px;
-    margin: 50px auto;
+  max-width: 700px;
+  margin: 50px auto;
 }
 
 ngb-carousel img {
-    width: 100%;
-    outline: none;
+  width: 100%;
+  outline: none;
 }
 
 ngb-carousel {
-    width: inherit;
-    height: inherit;
+  width: inherit;
+  height: inherit;
 }
 
 .carousel-inner {
-    overflow: visible;
+  overflow: visible;
 }
 
 .carousel-item {
-    display: flex !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s;
-    z-index: -1;
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+  z-index: -1;
 }
 
 .carousel-item.active{
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
 }
 
 .carousel-control-prev {
-     z-index: 20;
+   z-index: 20;
 }
 
 
 .carousel-control-next {
-     z-index: 20;
+   z-index: 20;
 }
 
 .carousel-indicators{
-    z-index: 20;
+  z-index: 20;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+          
+input[type=text], input[type=password] {
+width: 50%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+}
+
+
+.button1 {
+color: white;
+padding: 14px 30px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+border-radius:25px;
+border:none;
+}
+.button2 {
+color: white;
+padding: 14px 30px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 50%;
+border-radius:25px;
+border:none;
+}
+
+button:hover {
+opacity: 0.8;
+}
+
+
+.cancelbtn {
+width: auto;
+padding: 10px 18px;
+background-color: #f44336;
+}
+
+
+
+.container {
+padding: 16px;
+}
+
+span.psw {
+float: right;
+padding-top: 16px;
+}
+
+
+.modal {
+display: none; 
+position: fixed; 
+z-index: 1; 
+left: 0;
+top: 0;
+width: 100%;
+height: 100%; 
+position:relative;
+background-color: rgb(0,0,0); 
+background-color: rgba(0,0,0,0.4); 
+padding-top: 10px;
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto 15% auto; 
+border: 1px solid #888;
+width: 80%;             }
+
+.close {
+position: absolute;
+right: 25px;
+top: 0;
+color: #000;
+font-size: 35px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: red;
+cursor: pointer;
+}
+
+.animate {
+-webkit-animation: animatezoom 0.6s;
+animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+from {-webkit-transform: scale(0)} 
+to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+from {transform: scale(0)} 
+to {transform: scale(1)}
+}
+
+@media screen and (max-width: 300px) {
+span.psw {
+   display: block;
+   float: none;
+}
+.cancelbtn {
+   width: 100%;
+}
+}
+
+.cen{
+  display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.image {
+margin-left: 50px;
+display: block;
+max-width:230px;
+max-height:200px;
+width: auto;
+height: auto;
 }

@@ -16,7 +16,8 @@ export class ServiceHPComponent implements OnInit {
     this.uploadForm = this.fb.group({
       avatar: [null],
       name: ['']
-    })
+    });
+    this.imageURL = '/assets/images/';
   }
 
   ngOnInit(): void { }

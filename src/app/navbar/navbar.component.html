@@ -5,18 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  
+  <style>
+     .font{
+                font-size: xxx-large;
+                color:white;
+                letter-spacing: 0.075em;
+                padding-bottom: 10px;
+                font-family: 'Permanent Marker', cursive;
+            }
+  </style>
   
   </header>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark " style=" background: linear-gradient(to top right, #33ccff 0%, #ff66ff 100%); padding-top: 10px; padding-bottom: 0px;" id="mainNav">
+      <div class="container">
+          <a class="navbar-brand js-scroll-trigger" class="font">VIEWS</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fas fa-bars ml-1"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav text-uppercase ml-auto">
+                <div *ngIf="!loginck(); then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="trial">Home</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="flip">Login</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="regpro">Register</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;  " href="#about">About</a></li>
+                </ng-template>
+                <ng-template #elseBlock>
+                  <div *ngIf = "userType(); then custBlock else serBlock"></div>
+                <ng-template #custBlock>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="trial">Home</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="updatecust">{{getName()}}</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="cust-bookings">my bookings</a></li>
+                </ng-template>
+                <ng-template #serBlock>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="update-ser">{{getName()}}</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" routerLink="sercom">Manage</a></li>
+                </ng-template>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" (click)="logout()">logout</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;  " href="#about">About</a></li>
+                </ng-template>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  </body>
+  </html>
+  <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <h1 style = "color:black"><a class="navbar-brandic " href="#">Views</a></h1>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
-  
-  
-  
   <div class="collapse navbar-collapse" id="navbarColor01">
   <ul class="navbar-nav ml-auto">
   <li class="nav-item active">
@@ -36,7 +78,7 @@
   </nav>
   </body>
   </html>
-  
+-->
   <!--
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Navbar</a>

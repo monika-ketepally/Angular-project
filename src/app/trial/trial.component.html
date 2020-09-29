@@ -1,505 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-       
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link href="trial.component.css">
-        <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-        <style>
-            body {font-family: Arial, Helvetica, sans-serif;}
-            
-            input[type=text], input[type=password] {
-              width: 50%;
-              padding: 12px 20px;
-              margin: 8px 0;
-              display: inline-block;
-              border: 1px solid #ccc;
-              box-sizing: border-box;
-            }
-            
-          
-            .button1 {
-          
-              color: white;
-              padding: 14px 30px;
-              margin: 8px 0;
-              border: none;
-              cursor: pointer;
-              width: 100%;
-              border-radius:25px;
-              border:none;
-            }
-            .button2 {
-              background-color: black;
-              color: white;
-              padding: 14px 30px;
-              margin: 8px 0;
-              border: none;
-              cursor: pointer;
-              width: 50%;
-              border-radius:25px;
-              border:none;
-            }
-            
-            button:hover {
-              opacity: 0.8;
-            }
-            
-          
-            .cancelbtn {
-              width: auto;
-              padding: 10px 18px;
-              background-color: #f44336;
-            }
-            
-            
-            
-            .container {
-              padding: 16px;
-            }
-            
-            span.psw {
-              float: right;
-              padding-top: 16px;
-            }
-            
-            
-            .modal {
-              display: none; 
-              position: fixed; 
-              z-index: 1; 
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 100%; 
-             position:relative;
-              background-color: rgb(0,0,0); 
-              background-color: rgba(0,0,0,0.4); 
-              padding-top: 10px;
-            }
-            
-            .modal-content {
-              background-color: #fefefe;
-              margin: 5% auto 15% auto; 
-              border: 1px solid #888;
-              width: 80%;             }
-            
-            .close {
-              position: absolute;
-              right: 25px;
-              top: 0;
-              color: #000;
-              font-size: 35px;
-              font-weight: bold;
-            }
-            
-            .close:hover,
-            .close:focus {
-              color: red;
-              cursor: pointer;
-            }
-         
-            .animate {
-              -webkit-animation: animatezoom 0.6s;
-              animation: animatezoom 0.6s
-            }
-            
-            @-webkit-keyframes animatezoom {
-              from {-webkit-transform: scale(0)} 
-              to {-webkit-transform: scale(1)}
-            }
-              
-            @keyframes animatezoom {
-              from {transform: scale(0)} 
-              to {transform: scale(1)}
-            }
-            
-            @media screen and (max-width: 300px) {
-              span.psw {
-                 display: block;
-                 float: none;
-              }
-              .cancelbtn {
-                 width: 100%;
-              }
-            }
-            .font{
-                font-size: xx-large;
-                color: white;
-                font-family: 'Audiowide', cursive;
-            }
-            .cen{
-                display: block;
-  margin-left: auto;
-  margin-right: auto;
-            }
-            .image {
-      margin-left: 50px;
-display: block;
-max-width:230px;
-max-height:200px;
-width: auto;
-height: auto;
-}
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<link href="trial.component.css">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+</head>
+<body id="page-top" style="color: #0c62b8;">
 
 
-            </style>
-    </head>
-    <body id="page-top">
-        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black; padding-top: 10px; padding-bottom: 10px;" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" class="font" href="">VIEWS</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ml-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" href="#a">Home</a></li>
-                        <li class="nav-item"> <a class="nav-link js-scroll-trigger" onclick="document.getElementById('id01').style.display='block'" class="button1" >Login</a></li> 
-                        <li class="nav-item"> <a class="nav-link js-scroll-trigger" onclick="document.getElementById('id02').style.display='block'"  class="button1" >Register As A Professonal</a></li> 
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" style="padding-top: 1px;" href="#about">About</a></li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
-        <div id="id01" class="modal">
-  
-            <form class="modal-content animate" style="width: 400px;" action="/action_page.php" method="post">
-              <div class="container">
-                <label for="uname"><b>Username</b></label><br>
-                <input type="text" style="width: 360px;" placeholder="Enter Username" name="uname" required>
-          <br>
-                <label for="psw"><b>Password</b></label><br>
-                <input type="password" style="width: 360px;" placeholder="Enter Password" name="psw" required>
-                  <br>
-                <button class="button2" style="width: 360px;" type="submit">Login</button>
-                <br>
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" style="border-radius: 25px; margin-right: 40px; margin-top: 3px; border: none;" class="cancelbtn">Cancel</button>
-                  <button onclick="document.getElementById('id03').style.display='block'" style="margin-top: 3px;  margin-bottom: -6px; padding: 14px 30px;
-                  margin: 8px 0;
-                  border: none;
-                  cursor: pointer;
-                  width: 50%;
-                  border-radius:25px;
-                  border:none;">Register</button>
-              </div>
-          
-            
-                
-              
-            </form>
-          </div>
-          
-          <script>
-          var modal = document.getElementById('id01');
-          
-          window.onclick = function(event) {
-              if (event.target == modal) {
-                  modal.style.display = "none";
-              }
-          }
-          </script>
 
-<div id="id03" class="modal" style="top: -40px;">
+<ngb-carousel (slide)="slideActivate($event)" style="max-width: 1700px; margin: 0; height: 450px; display:flex;" >
 
-    <form class="modal-content animate" style="width: 400px; " action="/action_page.php" method="post"><div class="container">
-    <form  class="space">
-        <label for="username"><b>User Name</b></label> <br><input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px;"  name = "serviceName" class="placeholder"><br> 
-        <label for="category"><b>Email</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "category" class="placeholder " ><br> 
-        <label for="email"><b>Mobile</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "email" class="placeholder"><br> 
-        <label for="mobile"><b>Address</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "mobile" class="placeholder" ><br> 
-        <label for="address"><b>Pincode</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "address" class="placeholder" ><br> 
-        <label for="password"><b>Password</b></label><br>  <input type = "password" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "password"  class="placeholder" >
- </form>
- <button type="button" onclick="document.getElementById('id03').style.display='none'" style="border-radius: 25px; margin-right: 40px; margin-top: 3px; border: none;" class="cancelbtn">Cancel</button>
-
-     <button class="button2"  type="button" onclick="document.getElementById('id03').style.display='none'" style="margin-top: 3px;  margin-bottom: -6px; margin-top:-15px;" type="submit"  style="margin-top:-15px;">Register</button>
-     </div>
-    
-  
-     
-
- </form>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/Car Wash_edited.jpg" alt="Angular Carousel 1">
 </div>
-<script>
-    var modal = document.getElementById('id03');
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
-<div id="id02" class="modal" style="top: -40px;">
 
-    <form class="modal-content animate" style="width: 400px; " action="/action_page.php" method="post"><div class="container">
-    <form  class="space">
-        <label for="servicename"><b>Service Name</b></label> <br><input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px;"  name = "serviceName" class="placeholder"><br> 
-        <label for="category"><b>Category</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "category" class="placeholder " ><br> 
-        <label for="email"><b>Email</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "email" class="placeholder"><br> 
-        <label for="mobile"><b>Mobile</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "mobile" class="placeholder" ><br> 
-        <label for="address"><b>Address</b></label><br> <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "address" class="placeholder" ><br> 
-        <label for="password"><b>Password</b></label><br>  <input type = "text" style="width: 360px; margin-top: -5px; padding-top: 5px; margin-bottom: 5px; height: 35px"  name = "password"  class="placeholder" >
- </form>
-       <br>
-     <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn" style="border-radius: 25px; margin-right: 40px; margin-top: -15px; border: none;">Cancel</button>
-     <button class="button2"  style="margin-top: -15px;  margin-bottom: -6px;" type="submit" style="margin-top:-15px;">Register</button>
-
-     </div>
-    
-  
- </form>
+</ng-template>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/101.jpg" alt="Angular Carousel 2">
 </div>
-<script>
-    var modal = document.getElementById('id02');
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
 
-       <ngb-carousel (slide)="slideActivate($event)" style="max-width: 1700px; margin: 0; height: 450px; display:flex;" >
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img src="assets/images/plumbing.jpg" alt="Angular Carousel 1" >
-              </div>
-            
-            </ng-template>
-   
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img src="assets/images/Car Wash_edited.jpg" alt="Angular Carousel 2">
-                </div>
-               
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img src="assets/images/101.jpg" alt="Angular Carousel 2">
-                </div>
-                
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img src="assets/images/plumbing image_edited.jpg" alt="Angular Carousel 2">
-                </div>
-               
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img src="assets/images/corona disinfecting image_edited.jpg" alt="Angular Carousel 3">
-                </div>
-              
-              </ng-template>
-          </ngb-carousel>
-         
-        <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">WELCOME</h2>
-                    <h3 class="section-subheading text-muted ">Our Services at your door step.</h3>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/spaandsalonicon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold "> Salon And Spa</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/carwashicon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold">Car Wash</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/electricianicon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold">Electricians</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/plumbericon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold">Plumbers</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/carpentericon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold">Carpentry</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid cen image" src="assets/images/disinfectingicon.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"></div>
-                                <div class="portfolio-caption-subheading text-muted font-weight-bold">Disinfection</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Our journey during the pandemic</h3>
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/0.jpg.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                
-                                <h4 class="subheading">Beginnings</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">
-                                2020 has begun with unexpected turn of events; COVID-19. 
-                                The Corona virus has taken lives of billions.
-                                Implementation of the lockdown did taken our loved restaurants and places away but
-                                has given us a chance to explore ourselves more and spend more time
-                                with our loved ones where we are safe and secured.
-                                </p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/disinfecting.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                              
-                                <h4 class="subheading">New Normal</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">No matter what the situation outside there are always troubles at you home with say pipes, applainces, furniture
-                                etc.</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/disinfecting image.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">
-                                We at VIEWS would love to be at your service in this time of pandemic.
-                                We made sure every single equipment of ours
-                                is properly sanitized and the workers are taking at most precautions to provide a safe and quality service.
-                                They also get their temperatures checked everday and are also equiped with nessacary materials. 
-                                You have nothing to worry about.
-                                </p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/2.jpg.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                               
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">
-                             Stay home stay safe
-                                </p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Please
-                                <br />
-                                Wear A
-                                <br />
-                                Mask!
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-     
-        <footer class="footer py-4" style="background-color: black; color: white;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © Views 2020</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn  btn-social-icon btn-twitter mx-2" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
-                        <a class="btn  btn-social-icon  btn-facebook mx-2" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
-                        <a class="btn  btn-social-icon btn-linkedin mx-2" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
-                        <a class="btn btn-social-icon btn-google ic mx-2" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
-                        <a class="btn btn-social-icon btn-google ic mx-2" href="http://google.com/+"><i class="fa fa-google-plus icon"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-right">
-                        <a class="mr-3" href="#!">Privacy Policy</a>
-                        <a href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+</ng-template>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/plumbing image_edited.jpg" alt="Angular Carousel 3">
+</div>
+
+</ng-template>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/cc1.jpeg" alt="Angular Carousel 4">
+</div>
+
+</ng-template>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/plum.jpeg" style=" margin: 0;
+position: absolute;
+top: 14%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -19%);" alt="Angular Carousel 3">
+</div>
+</ng-template>
+<ng-template ngbSlide>
+<div class="picsum-img-wrapper">
+<img src="assets/images/salon02.jpeg" style="transform: translate(20%, -16%);" alt="Angular Carousel 2">
+</div>
+
+</ng-template>
+</ngb-carousel>
+
+<section class="page-section bg-light" id="portfolio">
+<div class="container" style=" padding-top: 3px; margin-top: -24px; margin-bottom: -46px;">
+<div class="text-center">
+<h2 class="section-heading text-uppercase">WELCOME</h2>
+<h3 class="section-subheading text-muted ">Our Services at your door step.</h3>
+</div>
+<form >
+<div class="form-group">
+<div class="input-group">
+<div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+<input type="text" (click) = "onclick()" style="width: 365px;margin-left: 30px;border-radius: 23px;" class="form-control" name="searchString" placeholder="Search for services..." [(ngModel)]="searchString" >
+</div>
+</div>
+</form>
+<div *ngIf="b; then Block"></div>
+<ng-template #Block>
+<div (click)="search(service)" style="margin-left: 35px;" routerLink ="one-service" *ngFor="let service of services | filter : 'serviceName' : searchString; let i = index">
+{{service.serviceName}}
+</div>
+</ng-template>
+<div class="row">
+<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/cp1.jpeg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold" (click) = "choose('carpentry')">Carpentry</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-lg-4 col-sm-6 mb-4">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/carw.jpeg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold" (click) = "choose('car wash')">Car Wash</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 mb-4">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/elec.jpeg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold" (click) = "choose('electrical')">Electricians</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/plumb.jpg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold" (click) = "choose('plumber')">Plumbers</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-sm-6 mb-4">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/s1.jpeg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold " (click) = "choose('salon')"> Salon And Spa</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-lg-4 col-sm-6">
+<div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+<div class="portfolio-hover">
+<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+</div>
+<img class="img-fluid cen image" src="assets/images/disinfect.jpg" alt="" />
+</a>
+<div class="portfolio-caption">
+<div class="portfolio-caption-heading"></div>
+<div class="portfolio-caption-subheading text-muted font-weight-bold" (click) = "choose('disinfection')">Disinfection</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="page-section" id="about">
+<div class="container" style=" padding-top: 3px; margin-top: -2pc; margin-bottom: -2pc;">
+<div class="text-center">
+<h2 class="section-heading text-uppercase">About</h2>
+<h3 class="section-subheading text-muted">Our journey during the pandemic</h3>
+</div>
+<ul class="timeline">
+<li>
+<div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/0.jpg.jpg" alt="" /></div>
+<div class="timeline-panel">
+<div class="timeline-heading">
+
+<h4 class="subheading">Beginnings</h4>
+</div>
+<div class="timeline-body"><p class="text-muted">
+2020 has begun with unexpected turn of events; COVID-19.
+The Corona virus has taken lives of billions.
+Implementation of the lockdown did taken our loved restaurants and places away but
+has given us a chance to explore ourselves more and spend more time
+with our loved ones where we are safe and secured.
+</p></div>
+</div>
+</li>
+<li class="timeline-inverted">
+<div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/disinfecting.jpg" alt="" /></div>
+<div class="timeline-panel">
+<div class="timeline-heading">
+
+<h4 class="subheading">New Normal</h4>
+</div>
+<div class="timeline-body"><p class="text-muted">No matter what the situation outside there are always troubles at you home with say pipes, applainces, furniture
+etc.</p></div>
+</div>
+</li>
+<li>
+<div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/disinfecting image.jpg" alt="" /></div>
+<div class="timeline-panel">
+<div class="timeline-heading">
+
+<h4 class="subheading">Transition to Full Service</h4>
+</div>
+<div class="timeline-body"><p class="text-muted">
+We at VIEWS would love to be at your service in this time of pandemic.
+We made sure every single equipment of ours
+is properly sanitized and the workers are taking at most precautions to provide a safe and quality service.
+They also get their temperatures checked everday and are also equiped with nessacary materials.
+You have nothing to worry about.
+</p></div>
+</div>
+</li>
+<li class="timeline-inverted">
+<div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/2.jpg.jpg" alt="" /></div>
+<div class="timeline-panel">
+<div class="timeline-heading">
+
+<h4 class="subheading">Phase Two Expansion</h4>
+</div>
+<div class="timeline-body"><p class="text-muted">
+Stay home stay safe
+</p></div>
+</div>
+</li>
+<li class="timeline-inverted">
+<div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/images/c1.jpeg" alt="" />
+
+</div>
+</li>
+</ul>
+</div>
+</section>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<script src="js/scripts.js"></script>
+</body>
 </html>

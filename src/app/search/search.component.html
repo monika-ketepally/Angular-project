@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 60%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  margin-left:120px;
+  margin-top:15px;
+  background-color:white;
+  }
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width:80%;
+  margin-left:190px;
+  
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+#myUL li a {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color:#eee;
+}
+</style>
+</head>
+<body>
+  <div>
+  <img src = " " style= "width:100%;height:100%;position:absolute"></div>
+      <div class="uuu" style= "position:relative">
+          <img src=" " width="200px" height="50px" style="float:left;margin-left:80px; margin-top:15px;"  >
+    
+          <input onclick="m"type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for movies.." title="Type in a name"><br>
+          <a href="#" class="previous" style="margin-top:15px;background-color:white;">&laquo;</a>
+      
+      
+      
+      <ul id="myUL" style = "background-color:white">
+        <li><a href="#}">Kabir Singh</a></li>
+        <li><a href="#">Anabelle</a></li>
+      
+        <li><a href="#">Brochevaruevarura</a></li>
+        <li><a href="#">Oh Baby!</a></li>
+      
+        <li><a href="#">Toy Story 4</a></li>
+        <li><a href="#">Article 15</a></li>
+        </ul>
+      </div>
+    
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

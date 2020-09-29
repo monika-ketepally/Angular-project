@@ -1,0 +1,58 @@
+<body style="height: 800px;">
+    <div class="container" style="margin-top: 35px;">
+    <p><span style="color:red">* </span>For Workers Only</p>
+    <p>Enter your Store Code : </p>
+    <input type = "text" [(ngModel)] = "secretCode" >
+    
+    <button class="btn btn-primary" style="margin-left: 25px;margin-top: -3px;" (click) = "submit()">Submit</button>
+    <div *ngIf ="code; then thenBlock"></div>
+   <ng-template #thenBlock>
+       <p>Enter your Worker Id : </p>
+    <input type = "number" [(ngModel)] = "workerId" >
+    <button class="btn btn-primary" style="margin-left: 25px;margin-top: -3px;" (click) = "getbooks()">Submit</button>
+   
+                <table class="table table-bordered table-striped table-hover table-sm text-center" style="padding : 10px;">
+                    <thead>
+                      <tr class="bg-info text-white">
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Price</th>
+                        <th>Service Name</th>
+                        <th>Customer Name</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor='let booking of bookings'>
+                          <td>{{booking.date | date : 'yyyy-MM-dd'}}</td>
+                          <td>{{booking.time}}</td>
+                          <td>{{booking.price }}</td>
+                          <td>{{booking.service.serviceName }}</td>
+                          <td>{{booking.customer.custName}}</td>
+                          <div *ngIf="!ratin(booking) then aBlock else bBlock"></div>
+                          <ng-template #aBlock>
+                            <td>
+                              <h4 class="text-warning">
+                                <ngb-rating [max]="5" [(rate)]="currentRat" [readonly]="false"
+                                  ></ngb-rating>&nbsp;&nbsp;&nbsp;<button (click)="update(booking)" style = "border:none;">ok</button>
+                              </h4>
+                            </td>
+                          </ng-template>
+                          <ng-template #bBlock>
+                            <td>
+                              {{ratinn(booking)}}
+                    <h4 class="text-warning">
+                      <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+                    </h4>
+                            </td>
+                          </ng-template>
+                          <td>{{booking.status}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              
+
+    </ng-template>
+    </div>
+    </body>

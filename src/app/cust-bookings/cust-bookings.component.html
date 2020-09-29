@@ -1,0 +1,370 @@
+<body>
+  <img src = "assets/images/back.jpg" onclick="history.back()" style = " width: 51px;">  <div class="container">
+    <div *ngIf="bookings.length!=0; then thenBlock  else elseBlock"></div>
+    <ng-template #thenBlock>
+      <h3 style="padding : 10px;">Ongoing bookings :</h3>
+      <div *ngFor='let booking of bookings'>
+        <div *ngIf="check(booking) then xBlock"> </div>
+        <ng-template #xBlock>
+
+          <div class="a-box shipment shipment-is-delivered">
+            <div class="a-box-inner">
+              <div class="a-row shipment-top-row js-shipment-info-container">
+                <div style="margin-right:230px; padding-right:20px">
+                  <div class="a-row">
+                    <span class="a-size-medium a-text-bold">
+                      {{booking.status}}
+                    </span>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-color-secondary">
+                      Your Booking is placed.
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="actions" style="width:230px;">
+              </div>
+            </div>
+            <div class="a-fixed-right-grid a-spacing-top-medium">
+              <div class="a-fixed-right-grid-inner a-grid-vertical-align a-grid-top">
+                <div class="a-fixed-right-grid-col a-col-left" style="padding-right:3.2%;float:left;">
+
+                  <div class="a-row">
+                    <div class="a-fixed-left-grid a-spacing-none">
+                      <div class="a-fixed-left-grid-inner" style="padding-left:100px">
+                        <div class="a-text-center a-fixed-left-grid-col a-col-left"
+                          style="width:100px;margin-left:-100px;float:left;">
+
+                          <div class="item-view-left-col-inner">
+                            <a class="a-link-normal">
+                              <div *ngIf ="!ck(booking); then imageBlock else defaultBlock"></div>
+                                <ng-template #imageBlock>
+                                <div class="col">
+                                  <img class="card1-img" src="assets/images/{{booking.service.imageName}}"
+                                  height="100" width="130" style="margin-left: 22px;margin-top: -17px;">
+                                 </div>
+                              </ng-template>
+
+                               <ng-template #defaultBlock>
+                                 <div class="col">
+                                  <img class="card1-img"  src="assets/images/def.jfif"
+                                  height="100" width="130" style="margin-left: 22px;margin-top: -17px;">
+                                </div>
+                               </ng-template>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="a-fixed-left-grid-col a-col-right"
+                          style="padding-left:1.5%;float:left;margin-left: 60px;">
+                          <div class="a-row">
+                            <a class="a-link-normal">
+                              {{booking.category}}
+                            </a>
+                          </div>
+                          <div class="a-row">
+                            <span class="a-size-small a-color-secondary">
+                              Provided by:
+                              {{booking.service.serviceName}} &reg;
+                            </span>
+                          </div>
+                          <div class="a-row">
+                            <span class="a-size-small a-color-secondary">
+                              Worker Name:
+                              {{booking.worker.workerName}}
+                            </span>
+                          </div>
+
+                          <div class="a-row">
+                            <span class="a-size-small">
+                            </span>
+                          </div>
+                          <div class="a-row">
+
+                            <span class="a-size-small a-color-price">
+                              <span style="text-decoration: inherit; white-space: nowrap;"><span
+                                  class="currencyINR">&nbsp;&nbsp;</span><span class="currencyINRFallback"
+                                  style="display:none">&#x20B9;
+                                </span>&#x20B9;{{booking.price}}</span>
+                            </span>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-fixed-right-grid-col a-col-right" style="width:230px;margin-right:-230px;float:left;">
+                  <span>Date:</span>{{booking.date}} <br>
+                  <span>Time:</span>{{booking.time}} <br>
+                  <div class="a-row">
+                    <div class="a-button-stack" style="margin-right: 50px;">
+                      <span class="a-button a-button-normal a-spacing-mini a-button-primary"><span
+                          class="a-button-inner"><a id="View-return-label-and-instructions_1" class="a-button-text"
+                            role="button" (click)="statusUp(booking)">
+                            Request Cancellation
+                          </a></span></span>
+
+                      <span class="a-button a-button-normal a-spacing-mini a-button-secondary"><span
+                          class="a-button-inner" (click)="serviceFeed(booking)" ><a
+                            id="View-Return/Refund-Status_1" class="a-button-text" role="button">
+                            Leave Service feedback
+                          </a></span></span>
+               
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </ng-template>
+      </div>
+      <h3 style="padding : 10px;">Past bookings :</h3>
+      <div *ngFor='let booking of bookings'>
+        <div *ngIf="!check(booking) then yBlock"> </div>
+        <ng-template #yBlock>
+
+          <div class="a-box shipment shipment-is-delivered">
+            <div class="a-box-inner">
+              <div class="a-row shipment-top-row js-shipment-info-container">
+                <div style="margin-right:230px; padding-right:20px">
+                  <div class="a-row">
+                    <span class="a-size-medium a-text-bold">
+                      {{booking.status}}
+                    </span>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-color-secondary">
+                      Service is provided.
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="actions" style="width:230px;">
+              </div>
+            </div>
+            <div class="a-fixed-right-grid a-spacing-top-medium">
+              <div class="a-fixed-right-grid-inner a-grid-vertical-align a-grid-top">
+                <div class="a-fixed-right-grid-col a-col-left" style="padding-right:3.2%;float:left;">
+
+                  <div class="a-row">
+                    <div class="a-fixed-left-grid a-spacing-none">
+                      <div class="a-fixed-left-grid-inner" style="padding-left:100px">
+                        <div class="a-text-center a-fixed-left-grid-col a-col-left"
+                          style="width:100px;margin-left:-100px;float:left;">
+
+                          <div class="item-view-left-col-inner">
+                            <a class="a-link-normal">
+                              <div *ngIf ="!ck(booking); then imageBlock else defaultBlock"></div>
+                                <ng-template #imageBlock>
+                                <div class="col">
+                                  <img class="card1-img" src="assets/images/{{booking.service.imageName}}"
+                                  height="100" width="130" style="margin-left: 22px;margin-top: -17px;">
+                                 </div>
+                              </ng-template>
+
+                               <ng-template #defaultBlock>
+                                 <div class="col">
+                                  <img class="card1-img"  src="assets/images/def.jfif"
+                                  height="100" width="130" style="margin-left: 22px;margin-top: -17px;">
+                                </div>
+                               </ng-template>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="a-fixed-left-grid-col a-col-right"
+                          style="padding-left:1.5%;float:left;margin-left: 60px;">
+                          <div class="a-row">
+                            <a class="a-link-normal">
+                              {{booking.category}}
+                            </a>
+                          </div>
+                          <div class="a-row">
+                            <span class="a-size-small a-color-secondary">
+                              Provided by:
+                              {{booking.service.serviceName}} &reg;
+                            </span>
+                          </div>
+
+                          <div class="a-row">
+                            <span class="a-size-small a-color-secondary">
+                              Worker Name:
+                              {{booking.worker.workerName}} 
+                            </span>
+                          </div>
+
+                          <div class="a-row">
+                            <span class="a-size-small">
+                            </span>
+                          </div>
+                          <div class="a-row">
+
+                            <span class="a-size-small a-color-price">
+                              <span style="text-decoration: inherit; white-space: nowrap;"><span
+                                  class="currencyINR">&nbsp;&nbsp;</span><span class="currencyINRFallback"
+                                  style="display:none">
+                                </span>&#x20B9;{{booking.price}}</span>
+                            </span>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-fixed-right-grid-col a-col-right" style="width:230px;margin-right:-230px;float:left;">
+                  <span>Date:</span>{{booking.date}} <br>
+                  <span>Time:</span>{{booking.time}} <br>
+                  <div class="a-row">
+                    <div class="a-button-stack" style="margin-right: 50px;">
+                      <span class="a-button a-button-normal a-spacing-mini a-button-primary"><span
+                          class="a-button-inner"><a id="View-return-label-and-instructions_1" class="a-button-text"
+                            role="button" (click)="serviceFeed(booking)">
+                            Leave Service feedback
+                          </a></span></span>
+
+                
+
+                      <span class="a-button a-button-normal a-spacing-mini a-button-base"><span
+                          class="a-button-inner"><a  id="Leave-seller-feedback_1" class="a-button-text"
+                            role="button" >
+                            Leave worker feedback
+
+                          </a></span>
+                      </span>
+                        
+                        
+
+
+                          <div *ngIf="!ratin(booking) then aBlock else bBlock"></div>
+                          <ng-template #aBlock>
+
+                            <h4 class="text-warning">
+                              <ngb-rating [max]="5" [(rate)]="currentRat" [readonly]="false"></ngb-rating>
+                              &nbsp;&nbsp;&nbsp;<button (click)="update(booking)" style="border:none;">ok</button>
+                            </h4>
+
+                          </ng-template>
+                          <ng-template #bBlock>
+
+                            {{ratinn(booking)}}
+                            <h4 class="text-warning">
+                              <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+                            </h4>
+
+                          </ng-template>
+                  
+                      
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <br>
+      </div>
+
+    </ng-template>
+    <ng-template #elseBlock>
+      <h4>No bookings yet.</h4>
+    </ng-template>
+  </div>
+</body>
+<!--div class="container">
+  <h3 style="padding : 10px;">My bookings :</h3>
+  <div *ngIf="bookings.length!=0; then thenBlock else elseBlock "></div>
+  <ng-template #thenBlock>
+    <table class="table table-bordered table-striped table-hover table-sm text-center" style="padding : 10px;">
+      <thead>
+        <tr class="bg-info text-white">
+          <th>Date</th>
+          <th>Time</th>
+          <th>Price</th>
+          <th>Service Name</th>
+          <th>Worker Name</th>
+          <th>Rating</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let booking of bookings'>
+          <div *ngIf="check(booking) then xBlock"> </div>
+          <ng-template #xBlock>
+            <td>{{booking.date | date : 'yyyy-MM-dd'}}</td>
+            <td>{{booking.time}}</td>
+            <td>{{booking.price }}</td>
+            <td>{{booking.service.serviceName }}</td>
+            <td>{{booking.worker.workerName}}</td>
+            <div *ngIf="!ratin(booking) then aBlock else bBlock"></div>
+            <ng-template #aBlock>
+              <td>
+                <h4 class="text-warning">
+                  <ngb-rating [max]="5" [(rate)]="currentRat" [readonly]="false"
+                    ></ngb-rating>&nbsp;&nbsp;&nbsp;<button (click)="update(booking)" style = "border:none;">ok</button>
+                </h4>
+              </td>
+            </ng-template>
+            <ng-template #bBlock>
+              <td>
+                {{ratinn(booking)}}
+      <h4 class="text-warning">
+        <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+      </h4>
+              </td>
+            </ng-template>
+           //<td>
+              <h4 class="text-warning">
+                <ngb-rating [max]="5" [(rate)]="currentRat" [readonly]="false"
+                  (click)="update(booking)"></ngb-rating>
+              </h4>
+            </td>//
+            <td>{{booking.status}}</td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="table table-bordered table-striped table-hover table-sm text-center" style="padding : 10px;">
+      <thead>
+        <tr class="bg-info text-white">
+          <th>Date</th>
+          <th>Time</th>
+          <th>Price</th>
+          <th>Service Name</th>
+          <th>Worker Name</th>
+          <th>Status</th>
+          <th>cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let booking of bookings'>
+          <div *ngIf="!check(booking) then yBlock"> </div>
+          <ng-template #yBlock>
+            <td>{{booking.date | date : 'yyyy-MM-dd'}}</td>
+            <td>{{booking.time}}</td>
+            <td>{{booking.price }}</td>
+            <td>{{booking.service.serviceName }}</td>
+            <div *ngIf="assign(booking) then assignBlock else notBlock"></div>
+            <ng-template #assignBlock>
+              <td>{{booking.worker.workerName}}</td>
+            </ng-template>
+            <ng-template #notBlock>
+              <td>not assigned</td>
+            </ng-template>
+            <td>{{booking.status}}</td>
+            <td><button (click)="statusUp(booking)">cancel</button></td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h4>No bookings yet.</h4>
+  </ng-template>
+
+</div-->

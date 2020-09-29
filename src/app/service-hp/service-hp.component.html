@@ -1,9 +1,12 @@
+<div class = "container" style = "height: 450px; margin-top:20px">
+  <div class  = "row">
+    <div class = "col-4">
 <form class=style [formGroup]="uploadForm" (ngSubmit)="submit(uploadForm)">
     <!-- Select File -->
     <input type="file"  accept="image/*" (change)="showPreview($event)" />
   
     <!-- Image Preview -->
-    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''" style = "padding : 10px;">
       <img [src]="imageURL" [alt]="uploadForm.value.name" class="im">
     </div>
   
@@ -12,3 +15,22 @@
   
     <button class="btn btn-secondary bt" type="submit">Submit</button>
   </form>
+  </div>
+
+  <div class="col-4" style="margin-top: 35px;">
+    
+  <button class="btn btn-primary aat" routerLink = "worker-details">WORKER DETAILS</button>
+
+  </div>
+  <div class="col-4" style="margin-top: 35px;">
+    
+    <button class="btn btn-primary aat" routerLink = "service-details">SERVICES PROVIDING</button>
+  
+    </div>
+    <div class="col-4" style="margin-top: 35px;">
+    
+      <button class="btn btn-primary aat" routerLink = "bookings">BOOKINGS</button>
+    
+      </div>
+  </div>
+  </div>

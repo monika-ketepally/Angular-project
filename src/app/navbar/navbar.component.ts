@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service'
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  check : boolean;
+  userName : any;
+  constructor(private router: Router, private service : ServiceService) { }
 
   ngOnInit(): void {
   }
-  logout() : void{
-    //this.empService.setUserLoggedIn();
-    this.router.navigate(['login']);
+  loginck():boolean{
+    this.check = this.service.getUserLogged();
+    return this.check;
   }
+  
+    logout() : void{
+      this.router.navigate(['trial']);
+      this.service.setUserLoggedOut();
+    }
+  
+    getName() : any{
+      return this.service.getUserName();
+      
+    }
+    userType():any{
+      if(this.service.userType === "cust"){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
 
 }

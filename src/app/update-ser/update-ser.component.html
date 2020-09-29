@@ -1,0 +1,63 @@
+<head>
+    <style>
+        .body {
+            background-image: url('assets/images/bg1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="wrap">
+        <input type="checkbox" id="form_switch" style="display: none;">
+        <div class="flipcard">
+            <div class="flipcard-inner">
+                <div class="flipcard-front">
+                    <form class="login-form form-horizontal" >
+                        <div class="form-header">
+                            <h3>update your details here </h3>
+                            <span class = "close" data-dismiss = "modal" (click) = "home()">&times;</span>
+                        </div>
+                        <div class="form-group validate-input row">
+                            <label class="control-label col-sm-3" for="usr">Service name:</label>
+                            <div class="col-sm-9"><input type="text" class="form-input" name="Name" readonly
+                            [(ngModel)] = "editObject.serviceName" class = "form-control"></div>
+                        </div>
+                        <div class="form-group validate-input row">
+                            <label class="control-label col-sm-3" for="usr">Category</label>
+                            <div class="col-sm-9"><input type="text" class="form-input" name="pincode"
+                            [(ngModel)] = "editObject.category" class = "form-control"></div>
+                        </div>
+                        <div class="form-group validate-input row">
+                            <label class="control-label col-sm-3" for="usr">Mobile:</label> 
+                            <div class="col-sm-9"><input type="text" class="form-input" name="mobile"
+                            [(ngModel)] = "editObject.mobile" class = "form-control"></div>
+                        </div>
+                        <div class="form-group validate-input row" data-validate="Valid email is required: ex@abc.xyz">
+                            <label class="control-label col-sm-3" for="usr">Email : </label>
+                            <div class="col-sm-9"><input type="text" class="form-input" name="email" 
+                            [(ngModel)] = "editObject.email" class = "form-control" readonly></div>
+                        </div>
+                        <div class="form-group validate-input row">
+                            <label class="control-label col-sm-3" for="usr">Address:</label>
+                            <div class="col-sm-9"><input type="text" class="form-input" name="address"
+                            [(ngModel)] = "editObject.address" class = "form-control"></div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="control-label col-sm-3" for="usr">*Password:</label>
+                            <div class="col-sm-9"><input type="password" class="form-input" name="password" [(ngModel)] = "x" 
+                            class = "form-control" placeholder="enter password"></div>
+                        </div>
+                        <div class="form-group validate-input" data-validate="Password is required">
+                            <button class="form-button" type="submit" (click) = "update()">update</button>
+                        </div>                       
+                    </form>         
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
